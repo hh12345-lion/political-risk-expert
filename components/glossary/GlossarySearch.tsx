@@ -22,20 +22,25 @@ export function GlossarySearch({ terms }: { terms: GlossaryTerm[] }) {
       <input
         id="glossary-search"
         type="search"
-        placeholder="Search terms..."
+        placeholder="Search terms…"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        className="mb-8 w-full max-w-md rounded-[4px] border border-[#D0D9E8] px-4 py-3 min-h-[44px] focus:border-[#1E2D45] focus:outline-none focus:ring-1 focus:ring-[#1E2D45]"
+        className="mb-8 w-full max-w-md border border-line bg-paper px-4 py-3 min-h-[48px] text-ink focus:border-meridian focus:outline-none focus:ring-1 focus:ring-meridian"
       />
-      <dl className="space-y-6">
-        {filtered.map((t) => (
+      <dl className="border-t border-line">
+        {filtered.map((t, i) => (
           <div
             key={t.slug}
             id={t.slug}
-            className="scroll-mt-24 rounded-[8px] border border-[#D0D9E8] bg-white p-5"
+            className="scroll-mt-28 grid gap-2 border-b border-line/70 py-5 sm:grid-cols-[2.5rem_1fr]"
           >
-            <dt className="font-semibold text-[#1E2D45]">{t.term}</dt>
-            <dd className="mt-2 text-[#374151] leading-relaxed">{t.definition}</dd>
+            <span className="font-display text-xs tabular-nums text-brass sm:pt-1" aria-hidden>
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <dt className="font-display text-base text-ink">{t.term}</dt>
+              <dd className="mt-2 text-mute leading-relaxed">{t.definition}</dd>
+            </div>
           </div>
         ))}
       </dl>

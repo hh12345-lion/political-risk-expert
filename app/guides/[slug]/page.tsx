@@ -46,9 +46,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <PageShell title={guide.h1} breadcrumbs={crumbs}>
         {guide.sections.map((section, i) => (
           <section key={i} className="mb-8">
-            <h2 className="text-xl font-bold text-[#1E2D45]">{section.heading}</h2>
+            <h2 className="text-xl font-bold text-ink">{section.heading}</h2>
             {section.paragraphs.map((p, j) => (
-              <p key={j} className="mt-3 text-[#374151] leading-relaxed">
+              <p key={j} className="mt-3 text-mute leading-relaxed">
                 {p}
               </p>
             ))}

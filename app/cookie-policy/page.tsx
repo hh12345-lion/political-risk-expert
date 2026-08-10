@@ -20,70 +20,70 @@ export default function CookiePolicyPage() {
     <>
       <PageJsonLd breadcrumbs={crumbs} />
       <PageShell title="Cookie Policy" subtitle="Last updated: June 2026" breadcrumbs={crumbs}>
-        <p className="text-[#374151] leading-relaxed">
+        <p className="text-mute leading-relaxed">
           This Cookie Policy explains how Political Risk Expert (&quot;we&quot;, &quot;us&quot;) uses cookies and
           similar technologies when you visit our website. It should be read alongside our Privacy Policy. We
           comply with the UK GDPR, the Privacy and Electronic Communications Regulations (PECR), and apply
           CCPA-aligned transparency where relevant to California visitors.
         </p>
 
-        <h2 className="mt-10 text-xl font-bold text-[#1E2D45]">What are cookies?</h2>
-        <p className="mt-4 text-[#374151] leading-relaxed">
+        <h2 className="mt-10 text-xl font-bold text-ink">What are cookies?</h2>
+        <p className="mt-4 text-mute leading-relaxed">
           Cookies are small text files stored on your device. We also use similar technologies such as local
           storage (for example, to remember your cookie consent choices) and pixels or tags loaded only after
           you grant consent.
         </p>
 
-        <h2 className="mt-10 text-xl font-bold text-[#1E2D45]">How we use cookies</h2>
-        <ul className="mt-4 list-disc space-y-2 pl-6 text-[#374151]">
+        <h2 className="mt-10 text-xl font-bold text-ink">How we use cookies</h2>
+        <ul className="mt-4 list-disc space-y-2 pl-6 text-mute">
           <li>Operate the website securely and remember your consent preferences</li>
           <li>Understand aggregated traffic and page performance (analytics)</li>
           <li>Measure advertising effectiveness (marketing tags, only if enabled)</li>
           <li>Remember optional display preferences where applicable</li>
         </ul>
 
-        <h2 className="mt-10 text-xl font-bold text-[#1E2D45]">Cookie categories</h2>
+        <h2 className="mt-10 text-xl font-bold text-ink">Cookie categories</h2>
         <div className="mt-4 space-y-4">
           {(Object.keys(CATEGORY_META) as Array<keyof typeof CATEGORY_META>).map((key) => {
             const meta = CATEGORY_META[key];
             return (
-              <section key={key} className="rounded-[8px] border border-[#D0D9E8] p-4">
-                <h3 className="font-semibold text-[#1E2D45]">{meta.label}</h3>
-                <p className="mt-2 text-sm text-[#374151]">{meta.description}</p>
+              <section key={key} className="rounded-[8px] border border-line p-4">
+                <h3 className="font-semibold text-ink">{meta.label}</h3>
+                <p className="mt-2 text-sm text-mute">{meta.description}</p>
                 {meta.required && (
-                  <p className="mt-2 text-xs font-medium text-[#C77B17]">Always active</p>
+                  <p className="mt-2 text-xs font-medium text-brass">Always active</p>
                 )}
               </section>
             );
           })}
         </div>
 
-        <h2 className="mt-10 text-xl font-bold text-[#1E2D45]">Third-party services</h2>
-        <p className="mt-4 text-[#374151] leading-relaxed">
+        <h2 className="mt-10 text-xl font-bold text-ink">Third-party services</h2>
+        <p className="mt-4 text-mute leading-relaxed">
           Depending on your choices, we may load tools provided by:
         </p>
-        <ul className="mt-4 list-disc space-y-2 pl-6 text-[#374151]">
+        <ul className="mt-4 list-disc space-y-2 pl-6 text-mute">
           <li>Google Analytics and Google Tag Manager (analytics)</li>
           <li>Meta Pixel (marketing)</li>
           <li>LinkedIn Insight Tag (marketing)</li>
           <li>Hotjar (analytics and experience)</li>
         </ul>
-        <p className="mt-4 text-sm text-[#374151]">
+        <p className="mt-4 text-sm text-mute">
           These providers may process data outside the UK. We use Google Consent Mode so tags respect your
           choices before data is collected.
         </p>
 
-        <h2 className="mt-10 text-xl font-bold text-[#1E2D45]">Your choices</h2>
-        <p className="mt-4 text-[#374151] leading-relaxed">
+        <h2 className="mt-10 text-xl font-bold text-ink">Your choices</h2>
+        <p className="mt-4 text-mute leading-relaxed">
           On your first visit you can Accept All, Reject Non-Essential, or Customize Preferences. You may change
           your mind at any time using the Cookie Settings control in the website footer. Consent is stored
           locally for up to 12 months, after which we will ask again.
         </p>
 
-        <h2 className="mt-10 text-xl font-bold text-[#1E2D45]">Contact</h2>
-        <p className="mt-4 text-[#374151] leading-relaxed">
+        <h2 className="mt-10 text-xl font-bold text-ink">Contact</h2>
+        <p className="mt-4 text-mute leading-relaxed">
           For questions about cookies, contact{" "}
-          <a href={`mailto:${SITE_EMAIL}`} className="text-[#1565C0] hover:underline">
+          <a href={`mailto:${SITE_EMAIL}`} className="text-meridian hover:underline">
             {SITE_EMAIL}
           </a>
           .

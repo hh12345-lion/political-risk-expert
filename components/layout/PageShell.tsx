@@ -16,8 +16,15 @@ export function PageShell({
   return (
     <>
       <PageHero title={title} subtitle={subtitle} breadcrumbs={breadcrumbs} />
-      <main className="mx-auto min-w-0 max-w-6xl overflow-x-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-        {children}
+      <main className="mx-auto min-w-0 max-w-6xl overflow-x-hidden px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+        <div className="reading-rail">
+          <aside className="hidden lg:block">
+            <p className="sticky top-28 text-[10px] uppercase tracking-[0.2em] text-brass">
+              Briefing
+            </p>
+          </aside>
+          <div className="min-w-0">{children}</div>
+        </div>
       </main>
       <CTASection />
     </>

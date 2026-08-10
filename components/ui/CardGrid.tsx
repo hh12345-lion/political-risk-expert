@@ -8,16 +8,25 @@ export type CardItem = {
 
 export function CardGrid({ items }: { items: CardItem[] }) {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map((item) => (
+    <div className="border-t border-line">
+      {items.map((item, i) => (
         <Link
           key={item.href}
           href={item.href}
-          className="group rounded-[8px] border border-[#D0D9E8] bg-white p-6 shadow-sm transition hover:border-[#1565C0] hover:shadow-md"
+          className="index-row group text-inherit no-underline"
         >
-          <h3 className="font-semibold text-[#1E2D45] group-hover:text-[#1565C0]">{item.title}</h3>
-          <p className="mt-2 text-sm text-[#374151] leading-relaxed">{item.description}</p>
-          <span className="mt-4 inline-block text-sm font-medium text-[#1565C0]">Learn more</span>
+          <span className="font-display text-xs tabular-nums text-brass">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <span className="min-w-0">
+            <span className="block font-display text-base tracking-tight text-ink group-hover:text-meridian-deep sm:text-lg">
+              {item.title}
+            </span>
+            <span className="mt-1 block text-sm leading-relaxed text-mute">{item.description}</span>
+          </span>
+          <span className="hidden text-[10px] uppercase tracking-[0.16em] text-meridian sm:inline">
+            Open →
+          </span>
         </Link>
       ))}
     </div>

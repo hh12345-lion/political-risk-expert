@@ -10,16 +10,19 @@ export function RelatedLinks({
 }) {
   if (links.length === 0) return null;
   return (
-    <aside className="mt-12 min-w-0 rounded-[8px] border border-[#D0D9E8] bg-[#F5F7FA] p-4 sm:p-6">
-      <h2 className="text-base font-bold text-[#1E2D45] sm:text-lg">{title}</h2>
-      <ul className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-2">
+    <aside className="mt-12 min-w-0 border-t border-line pt-8">
+      <h2 className="text-[10px] font-medium uppercase tracking-[0.2em] text-brass">{title}</h2>
+      <ul className="mt-4 grid grid-cols-1 gap-0 border-t border-line md:grid-cols-2">
         {links.map((link) => (
-          <li key={link.href}>
+          <li key={link.href} className="border-b border-line/70">
             <Link
               href={link.href}
-              className="inline-flex min-h-[44px] items-center text-sm font-medium text-[#1E2D45] hover:text-[#1565C0] hover:underline"
+              className="inline-flex min-h-[48px] items-center text-sm text-ink transition-colors hover:text-meridian"
             >
               {link.label}
+              <span className="ml-2 text-meridian" aria-hidden>
+                →
+              </span>
             </Link>
           </li>
         ))}

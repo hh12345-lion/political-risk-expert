@@ -26,7 +26,7 @@ export default function ServicesPage() {
         subtitle="Eight specialist expert witness services for arbitration counsel, commercial litigators, and political risk insurance counsel in any jurisdiction."
         breadcrumbs={crumbs}
       >
-        <p className="mb-8 max-w-3xl text-[#374151] leading-relaxed">
+        <p className="mb-8 max-w-3xl text-mute leading-relaxed">
           Services are available for matters seated in London, Paris, Geneva, Singapore, Washington,
           or other forums. Analysis is impartial and tailored to the countries and risk types
           relevant to your dispute.
@@ -38,7 +38,7 @@ export default function ServicesPage() {
             href: `/services/${s.id}`,
           }))}
         />
-        <p className="mt-8 text-sm text-[#374151]">
+        <p className="mt-8 text-sm text-mute">
           Select a service to view scope, expert approach, and frequently asked questions.
         </p>
       </PageShell>

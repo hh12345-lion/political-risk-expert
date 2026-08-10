@@ -14,30 +14,26 @@ export default function ThankYouPage() {
   return (
     <>
       <PageHero
-        title="Enquiry Received"
-        subtitle="Thank you for contacting Political Risk Expert. We will respond within 1 business day."
+        title="Enquiry received"
+        subtitle="We will respond within one business day with matching options."
       />
-      <main className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 lg:px-8">
-        <p className="text-[#374151] leading-relaxed">
-          Your instruction enquiry has been submitted successfully. A member of our team will review
-          your requirements and contact you to discuss expert witness availability, qualifications,
-          and next steps for your arbitration or litigation matter.
+      <main className="mx-auto max-w-xl px-4 py-14 sm:px-6 lg:px-8">
+        <p className="text-mute leading-relaxed">
+          Your instruction enquiry is with the desk. We will review forum, host state, and risk
+          type, then contact you on expert availability and next steps.
         </p>
-        <p className="mt-4 text-sm text-[#374151]">
-          For urgent tribunal deadlines, please note your deadline in any follow-up correspondence.
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/"
-            className="inline-flex min-h-[44px] items-center rounded-[4px] border border-[#D0D9E8] px-6 py-3 text-sm font-medium text-[#1E2D45] hover:bg-[#F5F7FA]"
+            className="inline-flex min-h-[48px] items-center border border-ink px-6 text-[11px] uppercase tracking-[0.14em] text-ink hover:bg-ink hover:text-paper"
           >
-            Return Home
+            Home
           </Link>
           <Link
             href="/how-to-instruct"
-            className="inline-flex min-h-[44px] items-center rounded-[4px] bg-[#1565C0] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1256a8]"
+            className="inline-flex min-h-[48px] items-center bg-ink px-6 text-[11px] uppercase tracking-[0.14em] text-paper hover:bg-meridian"
           >
-            How to Instruct
+            Instruction guide
           </Link>
         </div>
       </main>

@@ -105,7 +105,7 @@ export function Header() {
               index="05"
             />
             <Link
-              href="/contact"
+              href="/appoint"
               className="ml-3 inline-flex min-h-[44px] items-center border border-ink bg-ink px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-paper transition-colors hover:border-meridian hover:bg-meridian"
             >
               Instruct
@@ -170,7 +170,7 @@ export function Header() {
             </div>
           ))}
           <Link
-            href="/contact"
+            href="/appoint"
             onClick={closeMobileMenu}
             className="inline-flex min-h-[48px] w-full items-center justify-center bg-ink px-4 text-[11px] font-medium uppercase tracking-[0.14em] text-paper hover:bg-meridian"
           >

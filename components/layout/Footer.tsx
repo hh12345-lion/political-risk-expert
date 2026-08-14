@@ -38,7 +38,7 @@ export function Footer() {
               Terms
             </Link>
             <CookieSettingsButton variant="footer" />
-            <Link href="/contact" className="text-brass hover:text-paper">
+            <Link href="/appoint" className="text-brass hover:text-paper">
               Instruct
             </Link>
           </nav>

@@ -21,7 +21,7 @@ export default function NotFound() {
             Home
           </Link>
           <Link
-            href="/contact"
+            href="/appoint"
             className="inline-flex min-h-[48px] items-center bg-ink px-6 text-[11px] uppercase tracking-[0.14em] text-paper hover:bg-meridian"
           >
             Instruct

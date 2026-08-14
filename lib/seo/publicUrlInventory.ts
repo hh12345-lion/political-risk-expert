@@ -27,6 +27,7 @@ export const APP_STATIC_PATHS: PublicUrlEntry[] = [
 ];
 
 export const NON_INDEXABLE_PATHS = [
+  "/appoint",
   "/contact",
   "/thank-you",
   "/privacy",

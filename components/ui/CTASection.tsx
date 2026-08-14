@@ -17,7 +17,7 @@ export function CTASection() {
             jurisdiction-neutral analysis, response within one business day.
           </p>
           <Link
-            href="/contact"
+            href="/appoint"
             className="mt-7 inline-flex min-h-[48px] items-center bg-ink px-6 text-[11px] font-medium uppercase tracking-[0.16em] text-paper transition-colors hover:bg-meridian"
           >
             Instruct an Expert

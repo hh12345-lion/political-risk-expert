@@ -74,7 +74,7 @@ export default function HomePage() {
           </p>
           <div className="animate-rise-late mt-8 flex flex-wrap gap-3">
             <Link
-              href="/contact"
+              href="/appoint"
               className="inline-flex min-h-[48px] items-center bg-paper px-6 text-[11px] font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:bg-brass hover:text-paper"
             >
               Instruct an Expert

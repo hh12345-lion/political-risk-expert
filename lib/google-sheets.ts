@@ -4,7 +4,6 @@ type CellValue = string | number | boolean | null;
 
 interface SheetTarget {
   spreadsheetId?: string;
-  sheetName?: string;
 }
 
 interface AppendResult {
@@ -12,11 +11,16 @@ interface AppendResult {
   updatedRange: string | null | undefined;
 }
 
+function normalizePrivateKey(raw?: string): string | undefined {
+  if (!raw) return undefined;
+  return raw.replace(/^["']|["']$/g, "").replace(/\\n/g, "\n");
+}
+
 function getAuthClient() {
   return new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      private_key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
     },
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
@@ -34,21 +38,43 @@ export function isGoogleSheetsConfigured(): boolean {
   );
 }
 
+/** Always the first worksheet. All form submissions share that single tab. */
+async function resolveSingleTab(
+  sheets: sheets_v4.Sheets,
+  spreadsheetId: string
+): Promise<string> {
+  const meta = await sheets.spreadsheets.get({
+    spreadsheetId,
+    fields: "sheets.properties.title",
+  });
+  const titles =
+    meta.data.sheets
+      ?.map((s) => s.properties?.title)
+      .filter((t): t is string => Boolean(t)) ?? [];
+
+  if (titles.length === 0) {
+    throw new Error("Spreadsheet has no worksheets");
+  }
+
+  return titles[0];
+}
+
 export async function appendRow(
   values: CellValue[],
   target?: SheetTarget
 ): Promise<AppendResult> {
   const sheets = getSheetsClient();
   const spreadsheetId = target?.spreadsheetId || process.env.GOOGLE_SHEET_ID;
-  const sheetName = target?.sheetName || process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1";
 
   if (!spreadsheetId) {
     throw new Error("Missing spreadsheet ID: set GOOGLE_SHEET_ID or pass spreadsheetId");
   }
 
+  const sheetName = await resolveSingleTab(sheets, spreadsheetId);
+
   const response = await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `${sheetName}!A:A`,
+    range: `'${sheetName.replace(/'/g, "''")}'!A:A`,
     valueInputOption: "USER_ENTERED",
     insertDataOption: "INSERT_ROWS",
     requestBody: {

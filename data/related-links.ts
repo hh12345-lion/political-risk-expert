@@ -11,7 +11,7 @@ export const STANDARD_PROCESS_LINKS: RelatedLink[] = [
     label: "Political Risk in Litigation and Arbitration",
   },
   { href: "/how-to-instruct", label: "How to Instruct a Political Risk Expert" },
-  { href: "/appoint", label: "Instruct a Political Risk Expert Witness" },
+  { href: "/appoint", label: "Enquire about a political risk expert" },
 ];
 
 const PRACTICE_AREA_MATRIX: Record<
@@ -170,7 +170,7 @@ export function getGuideRelatedLinks(practiceSlugs: string[]): RelatedLink[] {
     { href: "/political-risk-explained", label: "Political Risk Explained" },
     ...links,
     { href: "/how-to-instruct", label: "How to Instruct a Political Risk Expert" },
-    { href: "/appoint", label: "Instruct a Political Risk Expert Witness" },
+    { href: "/appoint", label: "Enquire about a political risk expert" },
   ];
 }
 
@@ -200,5 +200,5 @@ export const PILLAR_RELATED_LINKS: RelatedLink[] = [
   { href: "/guides/sanctions-arbitration-2025-guide", label: "Sanctions Arbitration 2025-2026 Guide" },
   { href: "/guides/uk-investor-state-guide", label: "UK Investor-State Arbitration Guide" },
   { href: "/how-to-instruct", label: "How to Instruct a Political Risk Expert" },
-  { href: "/appoint", label: "Instruct a Political Risk Expert Witness" },
+  { href: "/appoint", label: "Enquire about a political risk expert" },
 ];

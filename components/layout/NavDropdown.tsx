@@ -10,10 +10,9 @@ type NavDropdownProps = {
   href: string;
   items: NavDropdownItem[];
   scrollable?: boolean;
-  index?: string;
 };
 
-export function NavDropdown({ label, href, items, scrollable, index }: NavDropdownProps) {
+export function NavDropdown({ label, href, items, scrollable }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -30,69 +29,48 @@ export function NavDropdown({ label, href, items, scrollable, index }: NavDropdo
     >
       <Link
         href={href}
-        className={`group inline-flex min-h-[44px] items-center gap-2 px-2 py-2 text-[11px] font-medium uppercase tracking-[0.14em] transition-colors ${
-          open ? "text-ink" : "text-mute hover:text-ink"
+        className={`flex min-h-[44px] items-center justify-between gap-2 px-5 py-2 font-display text-[13px] font-medium uppercase tracking-[0.12em] transition-colors ${
+          open ? "bg-white/10 text-paper" : "text-paper/70 hover:bg-white/5 hover:text-paper"
         }`}
         aria-expanded={open}
         aria-haspopup="true"
       >
-        {index && (
-          <span className="font-display text-[10px] text-brass tabular-nums">{index}</span>
-        )}
-        <span className="relative">
-          {label}
-          <span
-            className={`absolute -bottom-1 left-0 h-px bg-meridian transition-all duration-300 ${
-              open ? "w-full" : "w-0 group-hover:w-full"
-            }`}
-          />
-        </span>
+        {label}
         <svg
-          className={`h-3 w-3 text-meridian transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`h-3 w-3 shrink-0 opacity-70 ${open ? "rotate-90" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
           aria-hidden
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 5l7 7-7 7" />
         </svg>
       </Link>
 
       <div
-        className={`absolute left-1/2 top-full z-[60] w-[min(92vw,34rem)] -translate-x-1/2 pt-3 ${
+        className={`absolute left-full top-0 z-[60] w-[min(20rem,70vw)] pl-0 ${
           open ? "pointer-events-auto visible opacity-100" : "pointer-events-none invisible opacity-0"
-        } transition-opacity duration-200`}
+        }`}
       >
-        <div className="dossier-panel overflow-hidden">
-          <div className="flex items-center justify-between border-b border-line/70 bg-ink px-5 py-3 text-paper">
-            <div>
-              <p className="font-display text-sm tracking-tight">{label}</p>
-              <p className="mt-0.5 text-[10px] uppercase tracking-[0.16em] text-paper/55">
-                Dossier index
-              </p>
-            </div>
-            <Link
-              href={href}
-              className="text-[10px] uppercase tracking-[0.14em] text-brass hover:text-paper"
-            >
-              Open all →
+        <div className="flyout-panel border border-line bg-paper shadow-[12px_12px_40px_rgba(27,30,42,0.18)]">
+          <div className="flex items-center justify-between border-b border-line bg-field px-4 py-2.5">
+            <p className="font-display text-xs uppercase tracking-[0.14em] text-ink">{label}</p>
+            <Link href={href} className="font-display text-[11px] uppercase tracking-[0.12em] text-meridian hover:text-ink">
+              All
             </Link>
           </div>
           <ul
-            className={`grid gap-0 sm:grid-cols-2 ${scrollable ? "max-h-[min(60vh,20rem)] overflow-y-auto" : ""}`}
+            className={scrollable ? "max-h-[min(70vh,22rem)] overflow-y-auto" : ""}
             role="menu"
           >
-            {items.map((item, i) => (
-              <li key={item.href} role="none" className="border-b border-line/40 sm:odd:border-r">
+            {items.map((item) => (
+              <li key={item.href} role="none" className="border-b border-line/70 last:border-0">
                 <Link
                   href={item.href}
                   role="menuitem"
-                  className="flex min-h-[48px] items-start gap-3 px-4 py-3 text-sm text-mute transition-colors hover:bg-field/60 hover:text-ink focus:bg-field/60 focus:text-ink focus:outline-none"
+                  className="block px-4 py-2.5 text-sm leading-snug text-mute hover:bg-field hover:text-ink focus:bg-field focus:text-ink focus:outline-none"
                 >
-                  <span className="mt-0.5 font-display text-[10px] tabular-nums text-brass">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="leading-snug">{item.label}</span>
+                  {item.label}
                 </Link>
               </li>
             ))}

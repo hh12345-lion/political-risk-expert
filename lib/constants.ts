@@ -6,13 +6,13 @@ export const SITE_EMAIL = "cases@politicalriskexpert.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/politicalriskexpert";
 
 export const COLORS = {
-  primary: "#0E1419",
-  accent: "#3D6B7A",
-  highlight: "#8F7350",
-  background: "#EEF1F4",
-  sectionAlt: "#E2E7ED",
-  border: "#AEB8C4",
-  heading: "#0E1419",
-  body: "#4A5560",
-  signal: "#A63D40",
+  primary: "#1B1E2A",
+  accent: "#3A4D8C",
+  highlight: "#C9A227",
+  background: "#FAF7F2",
+  sectionAlt: "#EFE8DC",
+  border: "#D9D0C3",
+  heading: "#1B1E2A",
+  body: "#4E5363",
+  signal: "#9B3D3D",
 } as const;

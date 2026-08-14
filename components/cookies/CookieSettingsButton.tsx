@@ -12,7 +12,7 @@ export function CookieSettingsButton({ className = "", variant = "footer" }: Pro
 
   const base =
     variant === "footer"
-      ? "inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.14em] text-paper/45 hover:text-paper focus:outline-none focus-visible:underline"
+      ? "inline-flex min-h-[44px] items-center font-display text-[12px] uppercase tracking-[0.12em] text-mute hover:text-ink focus:outline-none focus-visible:underline"
       : "inline-flex min-h-[44px] items-center text-sm font-medium text-meridian hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-meridian";
 
   return (

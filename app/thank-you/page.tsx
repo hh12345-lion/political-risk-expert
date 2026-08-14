@@ -19,7 +19,7 @@ export default function ThankYouPage() {
       />
       <main className="mx-auto max-w-xl px-4 py-14 sm:px-6 lg:px-8">
         <p className="text-mute leading-relaxed">
-          Your instruction enquiry is with the desk. We will review forum, host state, and risk
+          Your enquiry is with the desk. We will review forum, host state, and risk
           type, then contact you on expert availability and next steps.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">

@@ -8,7 +8,7 @@ import { PRACTICE_AREAS } from "@/data/contact-options";
 const inputClass =
   "w-full min-w-0 max-w-full border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-mute/50 focus:border-meridian focus:outline-none focus:ring-1 focus:ring-meridian min-h-[48px]";
 const labelClass =
-  "mb-1.5 block text-[10px] font-medium uppercase tracking-[0.16em] text-brass";
+  "mb-1.5 block font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-ink";
 
 export function ContactForm() {
   const router = useRouter();
@@ -24,7 +24,7 @@ export function ContactForm() {
       fullName: String(data.get("name") ?? "").trim(),
       company: String(data.get("company") ?? "").trim(),
       email: String(data.get("email") ?? "").trim(),
-      phone: "",
+      phone: String(data.get("phone") ?? "").trim(),
       practiceArea: String(data.get("practice_area") ?? "").trim(),
       riskType: "",
       forum: "",
@@ -49,7 +49,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="min-w-0 w-full space-y-5">
+    <form onSubmit={handleSubmit} className="min-w-0 w-full max-w-lg space-y-5">
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="min-w-0">
@@ -117,9 +117,9 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex min-h-[48px] w-full items-center justify-center bg-ink px-6 text-[11px] font-medium uppercase tracking-[0.16em] text-paper transition-colors hover:bg-meridian disabled:opacity-60 sm:w-auto"
+        className="inline-flex min-h-[48px] w-full items-center justify-center bg-ink px-6 font-display text-sm font-semibold uppercase tracking-[0.14em] text-paper transition-colors hover:bg-meridian disabled:opacity-60 sm:w-auto"
       >
-        {status === "loading" ? "Sending…" : "Instruct"}
+        {status === "loading" ? "Sending…" : "Enquire"}
       </button>
 
       {status === "error" && (

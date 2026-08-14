@@ -20,8 +20,8 @@ export default function AppointPage() {
     <>
       <PageJsonLd breadcrumbs={crumbs} />
       <PageShell
-        title="Appoint an expert"
-        subtitle="Five fields. We reply within one business day with a matching recommendation."
+        title="Request an expert"
+        subtitle="One short form. We reply within one business day with a matching recommendation."
         breadcrumbs={crumbs}
       >
         <div className="mx-auto max-w-xl">

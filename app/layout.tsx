@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Syne } from "next/font/google";
+import { Barlow_Condensed, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsentProvider, ConsentDefaultsScript } from "@/components/cookies";
@@ -9,15 +9,16 @@ import { isProductionSite } from "@/lib/seo/is-production";
 import { homepageGraph, websiteSchema } from "@/lib/schema";
 import "./globals.css";
 
-const outfit = Outfit({
+const barlow = Barlow_Condensed({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow",
   display: "swap",
 });
 
-const syne = Syne({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-source",
   display: "swap",
 });
 
@@ -54,14 +55,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${outfit.variable} ${syne.variable} h-full`}>
-      <body className="flex min-h-full min-w-0 flex-col overflow-x-hidden font-sans antialiased">
+    <html lang="en-GB" className={`${barlow.variable} ${sourceSerif.variable} h-full`}>
+      <body className="flex min-h-full min-w-0 flex-col overflow-x-hidden font-sans antialiased lg:flex-row">
         <ConsentDefaultsScript />
         <CookieConsentProvider>
           <JsonLd data={[homepageGraph(), websiteSchema()]} />
           <Header />
-          <div className="flex-1">{children}</div>
-          <Footer />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
         </CookieConsentProvider>
       </body>
     </html>

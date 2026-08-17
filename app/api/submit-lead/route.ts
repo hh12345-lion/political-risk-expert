@@ -100,18 +100,28 @@ export async function POST(request: Request) {
     BRAND_NAME,
   ];
 
+  let sheetsOk = false;
+  let webhookOk = false;
+
   if (sheetsConfigured) {
     try {
       await appendRow(row);
+      sheetsOk = true;
     } catch (error) {
-      const err = error as { message?: string };
+      const err = error as { message?: string; response?: { data?: unknown } };
       console.error("Google Sheets write failed:", {
         message: err?.message,
+        details: err?.response?.data,
         timestamp: new Date().toISOString(),
       });
-      if (!webhookUrl) {
-        return NextResponse.json({ error: "Failed to save submission." }, { status: 500 });
-      }
+      // Sheets is the primary store — do not pretend success if it fails
+      return NextResponse.json(
+        {
+          error: "Failed to save submission to Google Sheets.",
+          message: err?.message ?? "Sheets append failed",
+        },
+        { status: 500 }
+      );
     }
   }
 
@@ -129,18 +139,28 @@ export async function POST(request: Request) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(outbound),
       });
+      webhookOk = res.ok;
+      if (!res.ok) {
+        console.error("Lead webhook rejected:", res.status);
+      }
+    } catch (error) {
+      console.error("Lead webhook unreachable:", error);
+    }
 
-      if (!res.ok && !sheetsConfigured) {
-        return NextResponse.json({ error: "WEBHOOK_REJECTED" }, { status: 502 });
-      }
-    } catch {
-      if (!sheetsConfigured) {
-        return NextResponse.json({ error: "WEBHOOK_UNREACHABLE" }, { status: 502 });
-      }
+    // Webhook-only mode: must succeed
+    if (!sheetsConfigured && !webhookOk) {
+      return NextResponse.json({ error: "WEBHOOK_FAILED" }, { status: 502 });
     }
   }
 
-  return NextResponse.json({ ok: true });
+  if (!sheetsOk && !webhookOk) {
+    return NextResponse.json({ error: "Lead was not saved." }, { status: 500 });
+  }
+
+  return NextResponse.json({
+    ok: true,
+    savedTo: sheetsOk ? "sheets" : "webhook",
+  });
 }
 
 export async function OPTIONS() {

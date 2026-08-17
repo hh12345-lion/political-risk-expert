@@ -2,24 +2,28 @@ import { google, sheets_v4 } from "googleapis";
 
 type CellValue = string | number | boolean | null;
 
-interface SheetTarget {
-  spreadsheetId?: string;
-}
-
 interface AppendResult {
   success: boolean;
   updatedRange: string | null | undefined;
+  sheetName: string;
 }
 
 function normalizePrivateKey(raw?: string): string | undefined {
   if (!raw) return undefined;
-  return raw.replace(/^["']|["']$/g, "").replace(/\\n/g, "\n");
+  let key = raw.trim();
+  if (
+    (key.startsWith('"') && key.endsWith('"')) ||
+    (key.startsWith("'") && key.endsWith("'"))
+  ) {
+    key = key.slice(1, -1);
+  }
+  return key.replace(/\\n/g, "\n");
 }
 
 function getAuthClient() {
   return new google.auth.GoogleAuth({
     credentials: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim(),
       private_key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
     },
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
@@ -32,17 +36,24 @@ function getSheetsClient(): sheets_v4.Sheets {
 
 export function isGoogleSheetsConfigured(): boolean {
   return Boolean(
-    process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL &&
-      process.env.GOOGLE_PRIVATE_KEY &&
-      process.env.GOOGLE_SHEET_ID
+    process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim() &&
+      process.env.GOOGLE_PRIVATE_KEY?.trim() &&
+      process.env.GOOGLE_SHEET_ID?.trim()
   );
 }
 
-/** Always the first worksheet. All form submissions share that single tab. */
-async function resolveSingleTab(
+/**
+ * Single shared worksheet for every enquiry on this site.
+ * Uses GOOGLE_SHEET_TAB_NAME when set; otherwise the first tab.
+ * Never creates additional tabs.
+ */
+async function resolveSheetTab(
   sheets: sheets_v4.Sheets,
   spreadsheetId: string
 ): Promise<string> {
+  const preferred = process.env.GOOGLE_SHEET_TAB_NAME?.trim();
+  if (preferred) return preferred;
+
   const meta = await sheets.spreadsheets.get({
     spreadsheetId,
     fields: "sheets.properties.title",
@@ -59,22 +70,20 @@ async function resolveSingleTab(
   return titles[0];
 }
 
-export async function appendRow(
-  values: CellValue[],
-  target?: SheetTarget
-): Promise<AppendResult> {
+export async function appendRow(values: CellValue[]): Promise<AppendResult> {
   const sheets = getSheetsClient();
-  const spreadsheetId = target?.spreadsheetId || process.env.GOOGLE_SHEET_ID;
+  const spreadsheetId = process.env.GOOGLE_SHEET_ID?.trim();
 
   if (!spreadsheetId) {
-    throw new Error("Missing spreadsheet ID: set GOOGLE_SHEET_ID or pass spreadsheetId");
+    throw new Error("Missing spreadsheet ID: set GOOGLE_SHEET_ID");
   }
 
-  const sheetName = await resolveSingleTab(sheets, spreadsheetId);
+  const sheetName = await resolveSheetTab(sheets, spreadsheetId);
+  const safeName = sheetName.replace(/'/g, "''");
 
   const response = await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `'${sheetName.replace(/'/g, "''")}'!A:A`,
+    range: `'${safeName}'!A:A`,
     valueInputOption: "USER_ENTERED",
     insertDataOption: "INSERT_ROWS",
     requestBody: {
@@ -85,5 +94,6 @@ export async function appendRow(
   return {
     success: true,
     updatedRange: response.data.updates?.updatedRange,
+    sheetName,
   };
 }

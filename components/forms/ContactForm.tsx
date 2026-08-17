@@ -13,10 +13,12 @@ const labelClass =
 export function ContactForm() {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [errorDetail, setErrorDetail] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
+    setErrorDetail("");
     const form = e.currentTarget;
     const data = new FormData(form);
 
@@ -41,8 +43,16 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (res.ok) router.push("/thank-you");
-      else setStatus("error");
+      if (res.ok) {
+        router.push("/thank-you");
+        return;
+      }
+      const body = (await res.json().catch(() => null)) as {
+        error?: string;
+        message?: string;
+      } | null;
+      setErrorDetail(body?.message || body?.error || "");
+      setStatus("error");
     } catch {
       setStatus("error");
     }
@@ -124,7 +134,8 @@ export function ContactForm() {
 
       {status === "error" && (
         <p className="text-sm text-signal" role="alert">
-          Something went wrong. Email{" "}
+          Something went wrong
+          {errorDetail ? `: ${errorDetail}` : ""}. Email{" "}
           <a href={`mailto:${SITE_EMAIL}`} className="underline">
             {SITE_EMAIL}
           </a>

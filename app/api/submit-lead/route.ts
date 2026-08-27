@@ -1,6 +1,15 @@
 import { NextResponse } from "next/server";
 import { appendRow, isGoogleSheetsConfigured } from "@/lib/google-sheets";
 
+
+function getSiteDomain(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL || "https://politicalriskexpert.com";
+  try {
+    return new URL(raw).hostname.replace(/^www\./, "");
+  } catch {
+    return "politicalriskexpert.com";
+  }
+}
 const BRAND_NAME = "Political Risk Expert";
 
 function getLeadWebhookUrl(): string {
@@ -131,6 +140,7 @@ export async function POST(request: Request) {
       Email: email,
       "Phone Number": phone,
       "Brand name": BRAND_NAME,
+    domain: getSiteDomain(),
     };
 
     try {

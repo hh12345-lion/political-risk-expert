@@ -5,6 +5,15 @@
  */
 const BRAND_NAME = "Political Risk Expert";
 
+
+function getSiteDomain() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL || "https://politicalriskexpert.com";
+  try {
+    return new URL(raw).hostname.replace(/^www\./, "");
+  } catch {
+    return "politicalriskexpert.com";
+  }
+}
 function getLeadWebhookUrl() {
   return (
     process.env.Lead_notification_url ||
@@ -73,6 +82,7 @@ exports.handler = async (event) => {
     Email: email,
     "Phone Number": phone,
     "Brand name": BRAND_NAME,
+    domain: getSiteDomain(),
   };
 
   let res;

@@ -4,7 +4,8 @@ import { SITE_EMAIL } from "@/lib/constants";
 
 export const metadata = createMetadata({
   title: "Privacy Policy",
-  description: "Privacy policy for Political Risk Expert website.",
+  description:
+    "How Political Risk Expert collects, uses, and protects personal data submitted through enquiry forms and website cookies.",
   path: "/privacy",
   noindex: true,
   follow: true,

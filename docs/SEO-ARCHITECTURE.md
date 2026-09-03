@@ -1,6 +1,6 @@
 # SEO Architecture — politicalriskexpert.com
 
-**Canonical domain:** `https://www.politicalriskexpert.com`  
+**Canonical domain:** `https://politicalriskexpert.com`  
 **Site name:** Political Risk Expert  
 **Locale:** `en_GB` (UK international arbitration counsel, political risk insurance counsel, commercial litigators)  
 **Role:** Lead-generation site for political risk expert witnesses in investment treaty arbitration, PRI claims, sanctions disputes, and commercial arbitration

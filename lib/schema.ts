@@ -22,17 +22,22 @@ export function breadcrumbSchema(
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: item.name ?? item.label ?? "",
-      ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
-    })),
+    itemListElement: items.map((item, i) => {
+      const name = item.name ?? item.label ?? "";
+      const href = item.href;
+      return {
+        "@type": "ListItem",
+        position: i + 1,
+        name,
+        ...(href ? { item: `${SITE_URL}${href}` } : {}),
+      };
+    }),
   };
 }
 
 export function organizationSchema() {
   return {
+    "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: "Political Risk Expert",
@@ -46,6 +51,7 @@ export function organizationSchema() {
 
 export function professionalServiceSchema() {
   return {
+    "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${SITE_URL}/#professional-service`,
     name: "Political Risk Expert Witness Services",
@@ -56,18 +62,27 @@ export function professionalServiceSchema() {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Political Risk Expert Witness Services",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, description: s.description },
+      itemListElement: services.map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Service",
+          name: s.title,
+          description: s.description,
+          url: `${SITE_URL}/services/${s.id}`,
+          provider: { "@id": `${SITE_URL}/#organization` },
+        },
       })),
     },
   };
 }
 
 export function homepageGraph() {
+  const { "@context": _orgCtx, ...organization } = organizationSchema();
+  const { "@context": _svcCtx, ...professionalService } = professionalServiceSchema();
   return {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema(), professionalServiceSchema()],
+    "@graph": [organization, professionalService],
   };
 }
 
@@ -80,20 +95,17 @@ export function websiteSchema() {
     url: SITE_URL,
     inLanguage: "en-GB",
     publisher: { "@id": `${SITE_URL}/#organization` },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE_URL}/glossary?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
 export function serviceNode(id: string, name: string, description: string) {
   return {
+    "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/services#${id}`,
+    "@id": `${SITE_URL}/services/${id}`,
     name,
     description,
+    url: `${SITE_URL}/services/${id}`,
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: "United Kingdom",
   };
@@ -119,7 +131,7 @@ export function articleSchema({
     dateModified: datePublished,
     author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
-    mainEntityOfPage: `${SITE_URL}${path}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${path}` },
     inLanguage: "en-GB",
   };
 }
@@ -138,6 +150,7 @@ export function personSchema({
   knowsAbout: string[];
 }) {
   return {
+    "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${SITE_URL}/experts#${id}`,
     name,

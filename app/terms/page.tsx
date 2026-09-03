@@ -4,7 +4,7 @@ import { SITE_EMAIL } from "@/lib/constants";
 
 export const metadata = createMetadata({
   title: "Terms of Use",
-  description: "Terms of use for Political Risk Expert website.",
+  description: "Terms governing use of the Political Risk Expert website and expert witness matching service.",
   path: "/terms",
   noindex: true,
   follow: true,

@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 import { isProductionSite } from "@/lib/seo/is-production";
 import { homepageGraph, websiteSchema } from "@/lib/schema";
+import { buildPageTitle } from "@/lib/metadata";
 import "./globals.css";
 
 const barlow = Barlow_Condensed({
@@ -30,11 +31,9 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default:
-      "Political Risk Expert Witness UK | Investment Treaty, Sanctions & Arbitration",
-    template: "%s | Political Risk Expert",
-  },
+  title: buildPageTitle(
+    "Political Risk Expert Witness UK | Investment Treaty, Sanctions & Arbitration"
+  ),
   description:
     "Find a qualified political risk expert witness in the UK. Independent experts for investment treaty arbitration, political risk insurance claims, sanctions disputes, and commercial arbitration.",
   verification: {

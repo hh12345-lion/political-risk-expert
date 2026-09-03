@@ -73,14 +73,15 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative min-h-[16rem] bg-ink">
-          <Image
-            src="/images/hero-meridian.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+        <Image
+          src="/images/hero-meridian.jpg"
+          alt=""
+          fill
+          priority
+          quality={72}
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
         </div>
       </section>
 
@@ -121,13 +122,14 @@ export default function HomePage() {
 
       <section className="grid border-t border-line lg:grid-cols-5">
         <div className="relative min-h-[14rem] lg:col-span-2">
-          <Image
-            src="/images/briefing-table.jpg"
-            alt="Briefing table with cartographic notes"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 40vw"
-          />
+            <Image
+              src="/images/briefing-table.jpg"
+              alt="Briefing table with cartographic notes"
+              fill
+              quality={70}
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
         </div>
         <div className="lg:col-span-3 px-5 py-12 sm:px-8 lg:px-10">
           <h2 className="font-display text-3xl font-semibold uppercase tracking-[0.04em] text-ink">
@@ -191,13 +193,14 @@ export default function HomePage() {
 
       <section className="grid items-stretch border-t border-line lg:grid-cols-2">
         <div className="relative min-h-[18rem]">
-          <Image
-            src="/images/texture-signal.jpg"
-            alt="Oxidized material with risk-signal contour"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+            <Image
+              src="/images/texture-signal.jpg"
+              alt="Oxidized material with risk-signal contour"
+              fill
+              quality={70}
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
         </div>
         <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:px-12">
           <h2 className="font-display text-3xl font-semibold uppercase tracking-[0.04em] text-ink">

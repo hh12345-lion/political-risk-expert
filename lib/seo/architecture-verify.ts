@@ -11,10 +11,10 @@ export type ArchIssue = { level: "error" | "warn"; message: string };
 export function verifySeoArchitecture(): ArchIssue[] {
   const issues: ArchIssue[] = [];
 
-  if (SITE_URL !== "https://www.politicalriskexpert.com") {
+  if (SITE_URL !== "https://politicalriskexpert.com") {
     issues.push({
       level: "warn",
-      message: `SITE_URL should be https://www.politicalriskexpert.com (got ${SITE_URL})`,
+      message: `SITE_URL should be https://politicalriskexpert.com (got ${SITE_URL})`,
     });
   }
 

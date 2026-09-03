@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata = createMetadata({
   title: "Thank You",
-  description: "Your enquiry has been received.",
+  description: "Your political risk expert enquiry was received. We respond within one business day.",
   path: "/thank-you",
   noindex: true,
   follow: false,

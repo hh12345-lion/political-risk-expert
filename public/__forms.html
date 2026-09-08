@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form detection</title>
+  </head>
+  <body>
+    <!-- Static blueprint for Netlify form detection. Not linked in the UI. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input type="text" name="_gotcha" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <select name="practice_area">
+        <option value="">Select if known</option>
+        <option value="Investment Treaty Arbitration">Investment Treaty Arbitration</option>
+        <option value="Political Risk Insurance">Political Risk Insurance</option>
+        <option value="Sanctions / Contract Dispute">Sanctions / Contract Dispute</option>
+        <option value="Commercial Arbitration">Commercial Arbitration</option>
+        <option value="UK Court (Commercial/TCC)">UK Court (Commercial/TCC)</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

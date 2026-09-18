@@ -69,7 +69,19 @@ export async function POST(request: Request) {
   const forum = sanitize(String(body.forum ?? ""));
   const claimValue = sanitize(String(body.claimValue ?? body.claim_value ?? ""));
   const countries = sanitize(String(body.countries ?? ""));
-  const message = sanitize(String(body.message ?? ""));
+  const message = sanitize(
+    String(
+      body.message ??
+        (body as { Message?: unknown }).Message ??
+        (body as { description?: unknown }).description ??
+        (body as { enquiry?: unknown }).enquiry ??
+        (body as { details?: unknown }).details ??
+        (body as { summary?: unknown }).summary ??
+        (body as { notes?: unknown }).notes ??
+        (body as { matter?: unknown }).matter ??
+        ""
+    )
+  );
   const urgency = sanitize(String(body.urgency ?? ""));
 
   if (!fullName || !email || !company || !message) {
@@ -140,7 +152,8 @@ export async function POST(request: Request) {
       Email: email,
       "Phone Number": phone,
       "Brand name": BRAND_NAME,
-    domain: getSiteDomain(),
+      domain: getSiteDomain(),
+      message,
     };
 
     try {

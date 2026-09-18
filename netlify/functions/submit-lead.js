@@ -22,6 +22,31 @@ function getLeadWebhookUrl() {
   );
 }
 
+function resolveLeadMessage(body) {
+  if (!body || typeof body !== "object") return "";
+  const keys = [
+    "message",
+    "Message",
+    "description",
+    "enquiry",
+    "details",
+    "summary",
+    "notes",
+    "matter",
+    "caseSummary",
+    "additionalInfo",
+    "additional_info",
+    "caseDetails",
+    "enquiryDetails",
+  ];
+  for (const key of keys) {
+    if (body[key] != null && String(body[key]).trim()) {
+      return String(body[key]).trim();
+    }
+  }
+  return "";
+}
+
 exports.handler = async (event) => {
   const jsonHeaders = {
     "Content-Type": "application/json",
@@ -56,6 +81,7 @@ exports.handler = async (event) => {
   const fullName = String(body.fullName || body.full_name || "").trim();
   const email = String(body.email || "").trim();
   const phone = body.phone != null ? String(body.phone).trim() : "";
+  const message = resolveLeadMessage(body);
 
   if (!fullName || !email) {
     return {
@@ -83,6 +109,7 @@ exports.handler = async (event) => {
     "Phone Number": phone,
     "Brand name": BRAND_NAME,
     domain: getSiteDomain(),
+    message,
   };
 
   let res;

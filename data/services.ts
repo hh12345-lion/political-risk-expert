@@ -94,7 +94,7 @@ export const services: Service[] = [
     title: "Expropriation Country Analysis",
     description:
       "Country-specific analysis of direct and indirect expropriation, regulatory takings, and Chorzow Factory fair market value standards in treaty and insurance claims.",
-    metaTitle: "Expropriation Country Analysis Expert Witness UK",
+    metaTitle: "Expropriation Country Analysis Expert Witness",
     metaDescription:
       "Expropriation country analysis for investment treaty and insurance claims. Direct and indirect expropriation, regulatory taking, Chorzow Factory standard, and ICSID jurisprudence.",
     content: [
@@ -120,7 +120,7 @@ export const services: Service[] = [
     title: "Resource Nationalism Assessment",
     description:
       "Assessment of mining licence revocations, windfall taxes, and forced renegotiation in West Africa, Latin America, and Central Asia resource disputes.",
-    metaTitle: "Resource Nationalism Assessment Expert Witness UK",
+    metaTitle: "Resource Nationalism Assessment Expert Witness",
     metaDescription:
       "Resource nationalism expert assessment for mining and energy disputes. Licence revocations in West Africa, Latin America, Central Asia, and ICSID investment treaty claims.",
     content: [
@@ -146,7 +146,7 @@ export const services: Service[] = [
     title: "FET Breach Context Analysis",
     description:
       "Analysis of fair and equitable treatment breaches, legitimate expectations, due process, and proportionality in investment treaty arbitration.",
-    metaTitle: "FET Breach Context Analysis Expert Witness UK",
+    metaTitle: "FET Breach Context Analysis Expert Witness",
     metaDescription:
       "Fair and equitable treatment breach analysis for investment treaty arbitration. Legitimate expectations, due process, transparency, and FET evolution post-Philip Morris.",
     content: [
@@ -172,7 +172,7 @@ export const services: Service[] = [
     title: "Political Violence Country Report",
     description:
       "Country reports on war, civil unrest, insurrection, and politically motivated violence for PRTC insurance and force majeure disputes.",
-    metaTitle: "Political Violence Country Report Expert Witness UK",
+    metaTitle: "Political Violence Country Report Expert Witness",
     metaDescription:
       "Political violence country reports for PRTC insurance and force majeure disputes. War, civil unrest, insurrection, and business interruption from political events.",
     content: [

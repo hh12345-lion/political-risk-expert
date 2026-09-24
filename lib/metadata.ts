@@ -7,7 +7,7 @@ const TITLE_MAX = 60;
 const DESCRIPTION_MAX = 155;
 
 const OG_IMAGE_ALT =
-  "Political Risk Expert Witness UK - Investment Treaty, Sanctions and Arbitration";
+  "Political Risk Expert Witness - Investment Treaty, Sanctions and Arbitration";
 
 export const OPEN_GRAPH_IMAGE = {
   url: `${SITE_URL}/opengraph-image`,
@@ -51,25 +51,35 @@ export function createMetadata({
   follow?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
-  const absoluteTitle = buildPageTitle(title);
-  const metaDescription = buildPageDescription(description);
-  const blockIndexing = noindex || !isProductionSite();
+  const pageTitle = buildPageTitle(title);
+  const pageDescription = buildPageDescription(description);
+  const shouldNoindex = noindex || !isProductionSite();
 
   return {
-    title: { absolute: absoluteTitle },
-    description: metaDescription,
-    alternates: { canonical: url },
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+      canonical: url,
+      languages: {
+        en: url,
+        "x-default": url,
+      },
+    },
     openGraph: {
-      title: absoluteTitle,
-      description: metaDescription,
+      title: pageTitle,
+      description: pageDescription,
       url,
       siteName: BRAND,
-      locale: "en_GB",
+      locale: "en",
       type: "website",
       images: [OPEN_GRAPH_IMAGE],
     },
-    twitter: { card: "summary_large_image", title: absoluteTitle, description: metaDescription },
-    robots: blockIndexing
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDescription,
+    },
+    robots: shouldNoindex
       ? { index: false, follow, googleBot: { index: false, follow } }
       : { index: true, follow: true },
   };

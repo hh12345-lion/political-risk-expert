@@ -5,7 +5,7 @@ import { createMetadata } from "@/lib/metadata";
 import { SITE_EMAIL } from "@/lib/constants";
 
 export const metadata = createMetadata({
-  title: "Appoint a Political Risk Expert Witness UK",
+  title: "Appoint a Political Risk Expert Witness",
   description:
     "Appoint a political risk expert witness for investment treaty arbitration, political risk insurance, sanctions disputes, or commercial arbitration. Response within 1 business day.",
   path: "/appoint",

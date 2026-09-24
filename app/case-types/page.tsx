@@ -5,7 +5,7 @@ import { createMetadata } from "@/lib/metadata";
 import { caseTypes } from "@/data/case-types";
 
 export const metadata = createMetadata({
-  title: "Case Types | Political Risk Expert Witness UK",
+  title: "Case Types | Political Risk Expert Witness",
   description:
     "Political risk expert witness case types: ICSID claims, LCIA/ICC arbitration, political risk insurance, sanctions disputes, expropriation, resource nationalism, and UK investor-state arbitration.",
   path: "/case-types",

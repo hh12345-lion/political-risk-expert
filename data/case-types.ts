@@ -16,8 +16,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "icsid-investment-treaty-claim",
     title: "ICSID Investment Treaty Claim",
-    h1: "ICSID Investment Treaty Claim Political Risk Expert Witness UK",
-    metaTitle: "ICSID Investment Treaty Claim Expert Witness UK",
+    h1: "ICSID Investment Treaty Claim Political Risk Expert Witness",
+    metaTitle: "ICSID Investment Treaty Claim Expert Witness",
     metaDescription:
       "Political risk expert witnesses for ICSID investment treaty claims. ICSID procedure, expert evidence rules, Chorzow Factory standard, and IBA Rules Article 5.",
     content: [
@@ -47,8 +47,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "lcia-icc-political-risk-arbitration",
     title: "LCIA & ICC Political Risk Arbitration",
-    h1: "LCIA & ICC Political Risk Arbitration Expert Witness UK",
-    metaTitle: "LCIA & ICC Political Risk Arbitration Expert Witness UK",
+    h1: "LCIA & ICC Political Risk Arbitration Expert Witness",
+    metaTitle: "LCIA & ICC Political Risk Arbitration Expert Witness",
     metaDescription:
       "Political risk expert witnesses for LCIA and ICC arbitrations involving sanctions, expropriation, regulatory risk, and commercial disputes with geopolitical elements.",
     content: [
@@ -78,8 +78,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "political-risk-insurance-claim",
     title: "Political Risk Insurance Claim",
-    h1: "Political Risk Insurance Claim Expert Witness UK",
-    metaTitle: "Political Risk Insurance Claim Expert Witness UK | PRTC",
+    h1: "Political Risk Insurance Claim Expert Witness",
+    metaTitle: "Political Risk Insurance Claim Expert Witness | PRTC",
     metaDescription:
       "Expert witnesses for political risk insurance claims. PRTC coverage disputes, cause of loss analysis, expropriation vs regulation, and Lloyd's market claims.",
     content: [
@@ -110,8 +110,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "sanctions-contract-dispute",
     title: "Sanctions Contract Dispute",
-    h1: "Sanctions Contract Dispute Expert Witness UK",
-    metaTitle: "Sanctions Contract Dispute Expert Witness UK | Force Majeure",
+    h1: "Sanctions Contract Dispute Expert Witness",
+    metaTitle: "Sanctions Contract Dispute Expert Witness | Force Majeure",
     metaDescription:
       "Expert witnesses for sanctions contract disputes. Force majeure, frustration, blocking regulations, and performance impossibility in UK and international arbitration.",
     content: [
@@ -138,8 +138,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "expropriation-claim",
     title: "Expropriation Claim",
-    h1: "Expropriation Claim Political Risk Expert Witness UK",
-    metaTitle: "Expropriation Claim Expert Witness UK | Direct & Indirect",
+    h1: "Expropriation Claim Political Risk Expert Witness",
+    metaTitle: "Expropriation Claim Expert Witness | Direct & Indirect",
     metaDescription:
       "Expert witnesses for expropriation claims in investment treaty arbitration and political risk insurance. Direct, indirect, and regulatory taking analysis.",
     content: [
@@ -168,8 +168,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "resource-nationalism-mining",
     title: "Resource Nationalism Mining Dispute",
-    h1: "Resource Nationalism Mining Dispute Expert Witness UK",
-    metaTitle: "Resource Nationalism Mining Dispute Expert Witness UK",
+    h1: "Resource Nationalism Mining Dispute Expert Witness",
+    metaTitle: "Resource Nationalism Mining Dispute Expert Witness",
     metaDescription:
       "Expert witnesses for mining disputes involving resource nationalism. Licence revocations in West Africa, Latin America, and ICSID claims against host states.",
     content: [
@@ -227,8 +227,8 @@ export const caseTypes: CaseType[] = [
   {
     slug: "energy-charter-treaty-dispute",
     title: "Energy Charter Treaty Dispute",
-    h1: "Energy Charter Treaty Dispute Expert Witness UK",
-    metaTitle: "Energy Charter Treaty Dispute Expert Witness UK | ECT Sunset",
+    h1: "Energy Charter Treaty Dispute Expert Witness",
+    metaTitle: "Energy Charter Treaty Dispute Expert Witness | ECT Sunset",
     metaDescription:
       "Expert witnesses for Energy Charter Treaty disputes. UK withdrawal 2025, sunset provision to April 2045, energy policy changes, and modernised ECT.",
     content: [

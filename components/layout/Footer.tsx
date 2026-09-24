@@ -13,6 +13,9 @@ export function Footer() {
           <a href={`mailto:${SITE_EMAIL}`} className="text-meridian hover:text-ink">
             {SITE_EMAIL}
           </a>
+          <Link href="/blog" className="hover:text-ink">
+            Blog
+          </Link>
           <Link href="/privacy" className="hover:text-ink">
             Privacy
           </Link>

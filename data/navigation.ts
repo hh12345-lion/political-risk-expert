@@ -33,6 +33,7 @@ export const guidesNavLinks: NavLink[] = guides.map((g) => ({
 
 export const resourcesNavLinks: NavLink[] = [
   { label: "Guides", href: "/guides" },
+  { label: "Blog", href: "/blog" },
   { label: "Glossary", href: "/glossary" },
   { label: "Qualifications", href: "/qualifications" },
   { label: "How to Instruct", href: "/how-to-instruct" },
@@ -62,6 +63,7 @@ export const mobileNavGroups = [
     links: [
       ...guidesNavLinks.slice(0, 3),
       { label: "All Guides", href: "/guides" },
+      { label: "Blog", href: "/blog" },
       { label: "Glossary", href: "/glossary" },
       { label: "Qualifications", href: "/qualifications" },
       { label: "How to Instruct", href: "/how-to-instruct" },

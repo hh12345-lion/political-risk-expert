@@ -16,8 +16,8 @@ export const riskTypes: RiskType[] = [
   {
     slug: "expropriation-nationalisation",
     title: "Expropriation & Nationalisation",
-    h1: "Expropriation & Nationalisation Expert Witness UK",
-    metaTitle: "Expropriation & Nationalisation Expert Witness UK | ICSID",
+    h1: "Expropriation & Nationalisation Expert Witness",
+    metaTitle: "Expropriation & Nationalisation Expert Witness | ICSID",
     metaDescription:
       "Expert witnesses on direct and indirect expropriation, regulatory taking, Chorzow Factory FMV standard, Hull Formula, and ICSID jurisprudence for UK arbitration counsel.",
     content: [
@@ -46,8 +46,8 @@ export const riskTypes: RiskType[] = [
   {
     slug: "fair-equitable-treatment-breach",
     title: "Fair & Equitable Treatment",
-    h1: "Fair & Equitable Treatment (FET) Expert Witness UK",
-    metaTitle: "FET Breach Expert Witness UK | Investment Treaty Arbitration",
+    h1: "Fair & Equitable Treatment (FET) Expert Witness",
+    metaTitle: "FET Breach Expert Witness | Investment Treaty Arbitration",
     metaDescription:
       "Expert witnesses on fair and equitable treatment breaches, legitimate expectations, due process, transparency, and FET evolution post-Philip Morris.",
     content: [
@@ -76,8 +76,8 @@ export const riskTypes: RiskType[] = [
   {
     slug: "sanctions-regulatory-risk",
     title: "Sanctions & Regulatory Risk",
-    h1: "Sanctions & Regulatory Risk Expert Witness UK",
-    metaTitle: "Sanctions & Regulatory Risk Expert Witness UK | OFSI, OFAC",
+    h1: "Sanctions & Regulatory Risk Expert Witness",
+    metaTitle: "Sanctions & Regulatory Risk Expert Witness | OFSI, OFAC",
     metaDescription:
       "Sanctions expert witnesses for UK arbitration. OFSI, OFAC, EU sanctions, secondary sanctions, force majeure, frustration, and blocking regulations in commercial disputes.",
     content: [
@@ -103,8 +103,8 @@ export const riskTypes: RiskType[] = [
   {
     slug: "political-violence-instability",
     title: "Political Violence & Instability",
-    h1: "Political Violence & Instability Expert Witness UK",
-    metaTitle: "Political Violence Expert Witness UK | PRTC Insurance Claims",
+    h1: "Political Violence & Instability Expert Witness",
+    metaTitle: "Political Violence Expert Witness | PRTC Insurance Claims",
     metaDescription:
       "Expert witnesses on war, civil unrest, insurrection, PRTC insurance coverage, business interruption from political violence, and force majeure in conflict zones.",
     content: [
@@ -134,8 +134,8 @@ export const riskTypes: RiskType[] = [
   {
     slug: "currency-convertibility-transfer",
     title: "Currency Inconvertibility & Transfer",
-    h1: "Currency Inconvertibility & Transfer Risk Expert Witness UK",
-    metaTitle: "Currency Inconvertibility Expert Witness UK | PRTC Claims",
+    h1: "Currency Inconvertibility & Transfer Risk Expert Witness",
+    metaTitle: "Currency Inconvertibility Expert Witness | PRTC Claims",
     metaDescription:
       "Expert witnesses on currency restrictions, PRTC coverage, exchange control measures, waiting period provisions, and Argentina, Venezuela, Zimbabwe precedents.",
     content: [
@@ -166,8 +166,8 @@ export const riskTypes: RiskType[] = [
   {
     slug: "resource-nationalism",
     title: "Resource Nationalism",
-    h1: "Resource Nationalism Expert Witness UK | Mining, Energy & Infrastructure",
-    metaTitle: "Resource Nationalism Expert Witness UK | Mining & Energy",
+    h1: "Resource Nationalism Expert Witness | Mining, Energy & Infrastructure",
+    metaTitle: "Resource Nationalism Expert Witness | Mining & Energy",
     metaDescription:
       "Expert witnesses on mining licence revocations, West Africa disputes, Latin America energy nationalism, Central Asia infrastructure, and ICSID claims.",
     content: [

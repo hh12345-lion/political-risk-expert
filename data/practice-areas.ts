@@ -16,11 +16,11 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "investment-treaty-arbitration",
     title: "Investment Treaty Arbitration",
-    h1: "Investment Treaty Arbitration Political Risk Expert Witness UK",
+    h1: "Investment Treaty Arbitration Political Risk Expert Witness",
     metaTitle:
-      "Investment Treaty Arbitration Expert Witness UK | ICSID, LCIA, ICC",
+      "Investment Treaty Arbitration Expert Witness | ICSID, LCIA, ICC",
     metaDescription:
-      "Political risk expert witnesses for investment treaty arbitration in the UK. ICSID, LCIA, ICC, UNCITRAL proceedings covering expropriation, FET breaches, and UK investor-state cases.",
+      "Political risk expert witnesses for investment treaty arbitration. ICSID, LCIA, ICC, UNCITRAL proceedings covering expropriation, FET breaches, and UK investor-state cases.",
     content: [
       "International arbitration plays a critical role in protecting investments against political risks. The UK's withdrawal from the Energy Charter Treaty was completed in 2025, while the sunset provision protects existing investments until April 2045.",
       "Our experts provide independent analysis for ICSID, LCIA, ICC, and UNCITRAL proceedings. Coverage includes Chorzow Factory full reparation standards, direct and indirect expropriation, fair and equitable treatment (FET), full protection and security, umbrella clauses, and BIT protections.",
@@ -54,11 +54,11 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "political-risk-insurance",
     title: "Political Risk Insurance",
-    h1: "Political Risk Insurance Expert Witness UK | PRTC & Expropriation Claims",
+    h1: "Political Risk Insurance Expert Witness | PRTC & Expropriation Claims",
     metaTitle:
-      "Political Risk Insurance Expert Witness UK | PRTC & Expropriation",
+      "Political Risk Insurance Expert Witness | PRTC & Expropriation",
     metaDescription:
-      "Expert witnesses for political risk insurance claims in the UK. PRTC coverage, expropriation, political violence, currency inconvertibility, and Lloyd's market coverage disputes.",
+      "Expert witnesses for political risk insurance claims. PRTC coverage, expropriation, political violence, currency inconvertibility, and Lloyd's market coverage disputes.",
     content: [
       "Political risk insurance claims require expert evidence when insurers dispute whether a covered political risk event has occurred, when the cause of loss is contested between political and commercial risk, or when quantum requires political context.",
       "Our experts cover Political Risk, Trade Credit and Political Violence (PRTC) insurance, expropriation coverage, currency inconvertibility, political violence, contract frustration, Lloyd's market policies, and parallel MIGA and export credit agency coverage.",
@@ -92,11 +92,11 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "sanctions-arbitration",
     title: "Sanctions Arbitration",
-    h1: "Sanctions Arbitration Expert Witness UK | Commercial & Investment Disputes",
+    h1: "Sanctions Arbitration Expert Witness | Commercial & Investment Disputes",
     metaTitle:
-      "Sanctions Arbitration Expert Witness UK | Force Majeure & Enforcement",
+      "Sanctions Arbitration Expert Witness | Force Majeure & Enforcement",
     metaDescription:
-      "Sanctions arbitration expert witnesses in the UK. Russia-Ukraine sanctions, Iran re-sanctions, OFSI, blocking regulations, contract frustration, and award enforcement.",
+      "Sanctions arbitration expert witnesses. Russia-Ukraine sanctions, Iran re-sanctions, OFSI, blocking regulations, contract frustration, and award enforcement.",
     content: [
       "Sanctions are now central to international arbitration. Nearly 25% of ICC cases in Q1 2024 involved sanctions, and the trend is expected to continue through 2026. Russia-Ukraine sanctions, Iran re-sanctions (2025), and European blocking regulations create substantial legal complexity.",
       "Our experts analyse Russia/Ukraine sanctions, Iran sanctions reintroduced in 2025, UK OFSI implementation, EU and US sanctions interaction, blocking regulations, contract frustration, force majeure in sanctions context, and award enforcement challenges.",
@@ -121,11 +121,11 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "commercial-arbitration-risk",
     title: "Commercial Arbitration Risk",
-    h1: "Commercial Arbitration Political Risk Expert Witness UK",
+    h1: "Commercial Arbitration Political Risk Expert Witness",
     metaTitle:
-      "Commercial Arbitration Political Risk Expert Witness UK | Country Risk",
+      "Commercial Arbitration Political Risk Expert Witness | Country Risk",
     metaDescription:
-      "Political risk expert witnesses for commercial arbitration in the UK. Resource nationalism, regulatory risk, country risk analysis, and force majeure in political context.",
+      "Political risk expert witnesses for commercial arbitration. Resource nationalism, regulatory risk, country risk analysis, and force majeure in political context.",
     content: [
       "Commercial arbitration with political risk elements requires expert evidence when disputes turn on government action, regulatory change, or geopolitical events affecting contract performance.",
       "Our experts cover resource nationalism, regulatory risk, country risk analysis, force majeure in political context, commercial contracts affected by geopolitical events, and dispute resolution in high-risk jurisdictions.",

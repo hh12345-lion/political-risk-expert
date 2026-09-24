@@ -21,7 +21,7 @@ export default function TermsPage() {
       </p>
       <h2 className="mt-8 text-lg font-bold text-ink">Nature of Service</h2>
       <p className="mt-4 text-mute leading-relaxed">
-        Political Risk Expert connects UK international arbitration counsel, commercial litigation
+        Political Risk Expert connects international arbitration counsel, commercial litigation
         solicitors, and political risk insurance counsel with qualified political risk expert
         witnesses. We are not a law firm and do not provide legal advice. Information on this website
         is for general guidance only and does not constitute legal or expert advice.

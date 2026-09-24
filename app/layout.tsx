@@ -10,6 +10,8 @@ import { homepageGraph, websiteSchema } from "@/lib/schema";
 import { buildPageTitle } from "@/lib/metadata";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 const barlow = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -32,10 +34,10 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: buildPageTitle(
-    "Political Risk Expert Witness UK | Investment Treaty, Sanctions & Arbitration"
+    "Political Risk Expert Witness | Investment Treaty, Sanctions & Arbitration"
   ),
   description:
-    "Find a qualified political risk expert witness in the UK. Independent experts for investment treaty arbitration, political risk insurance claims, sanctions disputes, and commercial arbitration.",
+    "Find a qualified political risk expert witness. Independent experts for investment treaty arbitration, political risk insurance claims, sanctions disputes, and commercial arbitration.",
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
     other: process.env.BING_SITE_VERIFICATION
@@ -44,8 +46,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      "en-GB": SITE_URL,
-      "en-US": SITE_URL,
+      en: SITE_URL,
       "x-default": SITE_URL,
     },
   },
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${barlow.variable} ${sourceSerif.variable} h-full`}>
+    <html lang="en" className={`${barlow.variable} ${sourceSerif.variable} h-full`}>
       <body className="flex min-h-full min-w-0 flex-col overflow-x-hidden font-sans antialiased lg:flex-row">
         <ConsentDefaultsScript />
         <CookieConsentProvider>

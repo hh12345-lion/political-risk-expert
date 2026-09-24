@@ -8,10 +8,9 @@ import { riskTypes } from "@/data/risk-types";
 import { services } from "@/data/services";
 
 export const metadata = createMetadata({
-  title:
-    "Political Risk Expert Witness UK | Investment Treaty, Sanctions & Arbitration",
+  title: "Political Risk Expert Witness | Investment Treaty, Sanctions & Arbitration",
   description:
-    "Find a qualified political risk expert witness in the UK. Independent experts for investment treaty arbitration, political risk insurance claims, sanctions disputes, and commercial arbitration.",
+    "Find a qualified political risk expert witness. Independent experts for investment treaty arbitration, political risk insurance claims, sanctions disputes, and commercial arbitration.",
   path: "/",
 });
 
@@ -93,7 +92,7 @@ export default function HomePage() {
           We match instructing parties with qualified political risk expert witnesses wherever
           the dispute arises — ICSID, LCIA, ICC, UNCITRAL, SIAC, HKIAC, or national courts.
           Matching turns on host state, risk type, and procedural frame, not a fixed geographic
-          franchise. UK references mark a major arbitration hub, not an exclusive territory.
+          franchise.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {[

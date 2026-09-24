@@ -43,8 +43,7 @@ export function organizationSchema() {
     name: "Political Risk Expert",
     url: SITE_URL,
     email: SITE_EMAIL,
-    address: { "@type": "PostalAddress", addressCountry: "GB" },
-    areaServed: ["United Kingdom", "International"],
+    areaServed: "International",
     sameAs: [LINKEDIN_URL],
   };
 }
@@ -58,7 +57,6 @@ export function professionalServiceSchema() {
     url: SITE_URL,
     serviceType: "Political Risk Expert Witness",
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: "United Kingdom",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Political Risk Expert Witness Services",
@@ -93,7 +91,7 @@ export function websiteSchema() {
     "@id": `${SITE_URL}/#website`,
     name: "Political Risk Expert",
     url: SITE_URL,
-    inLanguage: "en-GB",
+    inLanguage: "en",
     publisher: { "@id": `${SITE_URL}/#organization` },
   };
 }
@@ -107,7 +105,7 @@ export function serviceNode(id: string, name: string, description: string) {
     description,
     url: `${SITE_URL}/services/${id}`,
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: "United Kingdom",
+    areaServed: "International",
   };
 }
 

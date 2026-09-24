@@ -3,7 +3,7 @@ import { PageJsonLd } from "@/components/seo/PageJsonLd";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "What Is a Political Risk Expert Witness? | UK Commercial & Arbitration Role",
+  title: "What Is a Political Risk Expert Witness? | Commercial & Arbitration Role",
   description:
     "A political risk expert witness provides independent analysis of geopolitical and regulatory risks for investment treaty arbitration, political risk insurance claims, and commercial disputes.",
   path: "/what-is-a-political-risk-expert",
@@ -32,7 +32,7 @@ export default function WhatIsPage() {
         </p>
         <p className="mb-4 text-mute leading-relaxed">
           Political risk expert witnesses serve arbitration counsel, commercial litigation
-          solicitors, and political risk insurance counsel worldwide. They are instructed in
+          solicitors, and political risk insurance counsel. They are instructed in
           investment treaty arbitration (ICSID, LCIA, ICC, UNCITRAL, and other institutions),
           political risk insurance coverage disputes, sanctions-related contract arbitrations, and
           commercial disputes with political risk elements, regardless of where the underlying

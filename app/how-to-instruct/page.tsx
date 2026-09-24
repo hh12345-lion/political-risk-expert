@@ -3,7 +3,7 @@ import { PageJsonLd } from "@/components/seo/PageJsonLd";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "How to Instruct a Political Risk Expert Witness UK",
+  title: "How to Instruct a Political Risk Expert Witness",
   description:
     "How to instruct a political risk expert witness for investment treaty arbitration, political risk insurance, and sanctions disputes. Letter of instruction, documents, and procedural requirements.",
   path: "/how-to-instruct",

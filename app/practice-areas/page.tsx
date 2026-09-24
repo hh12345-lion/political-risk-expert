@@ -5,7 +5,7 @@ import { createMetadata } from "@/lib/metadata";
 import { practiceAreas } from "@/data/practice-areas";
 
 export const metadata = createMetadata({
-  title: "Practice Areas | Political Risk Expert Witness UK",
+  title: "Practice Areas | Political Risk Expert Witness",
   description:
     "Political risk expert witness practice areas: investment treaty arbitration, political risk insurance, sanctions arbitration, and commercial arbitration with political risk elements.",
   path: "/practice-areas",
@@ -19,7 +19,7 @@ export default function PracticeAreasHubPage() {
       <PageJsonLd breadcrumbs={crumbs} />
       <PageShell
         title="Practice Areas"
-        subtitle="Four practice areas where political risk expert evidence is essential, across ICSID, LCIA, ICC, UNCITRAL, and national court proceedings worldwide."
+        subtitle="Four practice areas where political risk expert evidence is essential, across ICSID, LCIA, ICC, UNCITRAL, and national court proceedings."
         breadcrumbs={crumbs}
       >
         <p className="mb-8 max-w-3xl text-mute leading-relaxed">

@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/ui/CTASection";
 import { CardGrid } from "@/components/ui/CardGrid";
+import { BrandImage } from "@/components/ui/BrandImage";
+import { images } from "@/lib/images";
 import { createMetadata } from "@/lib/metadata";
 import { practiceAreas } from "@/data/practice-areas";
 import { riskTypes } from "@/data/risk-types";
@@ -37,7 +39,7 @@ const landscape = [
     href: "/political-risk-explained#resource-nationalism",
     label: "Resource nationalism wave",
     detail:
-      "Licence revocations and fiscal resets across West Africa, Latin America, and Central Asia continue to feed ICSID and commercial dockets — country context is the evidentiary hinge.",
+      "Licence revocations and fiscal resets across West Africa, Latin America, and Central Asia continue to feed ICSID and commercial dockets, and country context is the evidentiary hinge.",
   },
 ];
 
@@ -54,7 +56,7 @@ export default function HomePage() {
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-mute sm:text-lg">
             Independent expert witnesses for investment treaty arbitration, political risk
-            insurance, and sanctions matters — any jurisdiction, any major forum.
+            insurance, and sanctions matters, in any jurisdiction, any major forum.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -72,15 +74,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative min-h-[16rem] bg-ink">
-        <Image
-          src="/images/hero-meridian.jpg"
-          alt=""
-          fill
-          priority
-          quality={72}
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
+          <BrandImage src={images.peacePalace.src} alt={images.peacePalace.alt} tone="ink" preload />
         </div>
       </section>
 
@@ -90,45 +84,67 @@ export default function HomePage() {
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-mute">
           We match instructing parties with qualified political risk expert witnesses wherever
-          the dispute arises — ICSID, LCIA, ICC, UNCITRAL, SIAC, HKIAC, or national courts.
+          the dispute arises: ICSID, LCIA, ICC, UNCITRAL, SIAC, HKIAC, or national courts.
           Matching turns on host state, risk type, and procedural frame, not a fixed geographic
           franchise.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div className="mt-10 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-3">
           {[
             {
               title: "Treaty & ISDS",
               body: "Expropriation, FET, and resource nationalism evidence for investor-state claims.",
+              href: "/practice-areas/investment-treaty-arbitration",
             },
             {
               title: "PRI coverage",
               body: "Country and political-risk context for political risk insurance disputes.",
+              href: "/practice-areas/political-risk-insurance",
             },
             {
               title: "Sanctions overlay",
               body: "Regime design and commercial effect across OFAC, OFSI, and EU measures.",
+              href: "/practice-areas/sanctions-arbitration",
             },
-          ].map((item) => (
-            <div key={item.title} className="chamber-card p-5">
-              <h3 className="font-display text-lg font-semibold uppercase tracking-[0.04em] text-ink">
+          ].map((item, i) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className={`group relative flex min-h-[17rem] flex-col justify-end overflow-hidden p-7 no-underline transition-colors ${
+                i === 1 ? "bg-ink text-paper" : "bg-white text-ink hover:bg-field"
+              }`}
+            >
+              <span
+                aria-hidden
+                className={`absolute right-4 top-1 font-display text-[7rem] font-bold leading-none ${
+                  i === 1 ? "text-paper/10" : "text-line"
+                }`}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span aria-hidden className="mb-4 block h-1 w-12 bg-brass transition-all group-hover:w-20" />
+              <h3
+                className={`relative font-display text-2xl font-semibold uppercase tracking-[0.04em] ${
+                  i === 1 ? "!text-paper" : "text-ink"
+                }`}
+              >
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-mute">{item.body}</p>
-            </div>
+              <p className={`relative mt-2 text-sm leading-relaxed ${i === 1 ? "text-paper/75" : "text-mute"}`}>
+                {item.body}
+              </p>
+            </Link>
           ))}
         </div>
       </section>
 
       <section className="grid border-t border-line lg:grid-cols-5">
         <div className="relative min-h-[14rem] lg:col-span-2">
-            <Image
-              src="/images/briefing-table.jpg"
-              alt="Briefing table with cartographic notes"
-              fill
-              quality={70}
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
+          <BrandImage
+            src={images.containerPort.src}
+            alt={images.containerPort.alt}
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            blade="bl"
+          />
         </div>
         <div className="lg:col-span-3 px-5 py-12 sm:px-8 lg:px-10">
           <h2 className="font-display text-3xl font-semibold uppercase tracking-[0.04em] text-ink">
@@ -178,28 +194,57 @@ export default function HomePage() {
             Full list
           </Link>
         </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {riskTypes.map((r) => (
-            <Link key={r.slug} href={`/risk-types/${r.slug}`} className="chamber-card p-5 text-inherit no-underline">
-              <h3 className="font-display text-lg font-semibold uppercase tracking-[0.03em] text-ink">
-                {r.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-mute">{r.content[0].slice(0, 140)}…</p>
-            </Link>
+        <ol className="risk-index relative mt-8 border-t border-ink lg:min-h-[26rem] lg:pr-[50%]">
+          {riskTypes.map((r, i) => (
+            <li key={r.slug} className="border-b border-line">
+              <Link
+                href={`/risk-types/${r.slug}`}
+                className="group flex min-h-[60px] items-center gap-4 py-3 text-inherit no-underline transition-[padding] hover:pl-2 focus:outline-none focus-visible:pl-2"
+              >
+                <span className="w-8 shrink-0 font-display text-sm font-semibold text-brass">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="flex-1 font-display text-xl font-semibold uppercase tracking-[0.03em] text-ink group-hover:text-meridian group-focus-visible:text-meridian">
+                  {r.title}
+                </span>
+                <span aria-hidden className="text-brass opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                  →
+                </span>
+              </Link>
+              <div
+                aria-hidden
+                className="risk-preview pointer-events-none absolute right-0 top-0 hidden h-full w-[46%] overflow-hidden rounded-md bg-ink text-paper shadow-[0_26px_50px_-28px_rgba(26,28,37,0.8)] lg:block"
+              >
+                <div className="absolute inset-0 bg-meridian">
+                  <Image
+                    src={images.openPitMine.src}
+                    alt=""
+                    fill
+                    quality={55}
+                    sizes="480px"
+                    className="object-cover opacity-40 mix-blend-luminosity"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
+                <div className="relative flex h-full flex-col justify-end p-8">
+                  <span className="font-display text-7xl font-bold leading-none text-brass/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-4 font-display text-3xl font-semibold uppercase leading-tight tracking-[0.03em]">
+                    {r.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/75">{r.content[0].slice(0, 220)}…</p>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-brass" />
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       <section className="grid items-stretch border-t border-line lg:grid-cols-2">
         <div className="relative min-h-[18rem]">
-            <Image
-              src="/images/texture-signal.jpg"
-              alt="Oxidized material with risk-signal contour"
-              fill
-              quality={70}
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+          <BrandImage src={images.openPitMine.src} alt={images.openPitMine.alt} />
         </div>
         <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:px-12">
           <h2 className="font-display text-3xl font-semibold uppercase tracking-[0.04em] text-ink">
@@ -213,7 +258,7 @@ export default function HomePage() {
               },
               {
                 t: "Match the specialist",
-                d: "We propose experts with the regional or issue depth your forum and timetable require — CPR Part 35 / IBA-ready where applicable.",
+                d: "We propose experts with the regional or issue depth your forum and timetable require, CPR Part 35 / IBA-ready where applicable.",
               },
               {
                 t: "Send a clean brief",

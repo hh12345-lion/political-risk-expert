@@ -135,7 +135,7 @@ export async function POST(request: Request) {
         details: err?.response?.data,
         timestamp: new Date().toISOString(),
       });
-      // Sheets is the primary store — do not pretend success if it fails
+      // Sheets is the primary store: do not pretend success if it fails
       return NextResponse.json(
         {
           error: "Failed to save submission to Google Sheets.",

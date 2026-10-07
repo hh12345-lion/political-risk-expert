@@ -42,6 +42,7 @@ export function organizationSchema() {
     "@id": `${SITE_URL}/#organization`,
     name: "Political Risk Expert",
     url: SITE_URL,
+    logo: `${SITE_URL}/brand/icon-512.png`,
     email: SITE_EMAIL,
     areaServed: "International",
     sameAs: [LINKEDIN_URL],

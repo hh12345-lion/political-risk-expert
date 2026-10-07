@@ -43,7 +43,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           path: `/guides/${slug}`,
         })}
       />
-      <PageShell title={guide.h1} breadcrumbs={crumbs}>
+      <PageShell title={guide.h1} breadcrumbs={crumbs} aside>
         {guide.sections.map((section, i) => (
           <section key={i} className="mb-8">
             <h2 className="text-xl font-bold text-ink">{section.heading}</h2>

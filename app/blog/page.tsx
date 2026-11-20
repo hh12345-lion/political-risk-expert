@@ -9,7 +9,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/constants";
 export const dynamic = "force-dynamic";
 
 export const metadata = createMetadata({
-  title: "Blog | Political Risk Expert",
+  title: "Political Risk Expert Blog | Disputes & Arbitration",
   description:
     "Articles on distinguishing political and commercial risk, instructing political risk experts, and treaty, sanctions, and PRI disputes.",
   path: "/blog",

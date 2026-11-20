@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fitDescription, fitTitle } from "./fit";
 import { SITE_URL } from "./constants";
 import { isProductionSite } from "./seo/is-production";
 
@@ -10,7 +11,8 @@ const OG_IMAGE_ALT =
   "Political Risk Expert Witness - Investment Treaty, Sanctions and Arbitration";
 
 export const OPEN_GRAPH_IMAGE = {
-  url: `${SITE_URL}/opengraph-image`,
+  // Previously `${SITE_URL}/opengraph-image`, which has no route and returned 404.
+  url: `${SITE_URL}/brand/og.png`,
   width: 1200,
   height: 630,
   alt: OG_IMAGE_ALT,
@@ -51,12 +53,15 @@ export function createMetadata({
   follow?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
-  const pageTitle = buildPageTitle(title);
-  const pageDescription = buildPageDescription(description);
+  // Shortened at a natural break instead of cut mid-phrase with "…". Previously:
+  // const pageTitle = buildPageTitle(title);
+  // const pageDescription = buildPageDescription(description);
+  const pageTitle = fitTitle(title, "fit");
+  const pageDescription = fitDescription(description);
   const shouldNoindex = noindex || !isProductionSite();
 
   return {
-    title: pageTitle,
+    title: { absolute: pageTitle },
     description: pageDescription,
     alternates: {
       canonical: url,

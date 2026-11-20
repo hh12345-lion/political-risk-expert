@@ -4,7 +4,7 @@ import { imageCredits } from "@/lib/images";
 
 export const metadata = createMetadata({
   title: "Image Credits",
-  description: "Sources and licences for the photographs used on politicalriskexpert.com.",
+  description: "Sources, authors and licences for the photographs used on politicalriskexpert.com, with links to each original.",
   path: "/image-credits",
   noindex: true,
   follow: true,

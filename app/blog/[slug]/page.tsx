@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { fitDescription, fitTitle } from "@/lib/fit";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -21,18 +22,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
 
   const url = `${SITE_URL}/blog/${post.slug}`;
-  const title = `${post.title} | ${SITE_NAME}`;
+  // Shorter search title where the headline is too long to fit (the on-page headline is unchanged).
+  const title = fitTitle(`${post.seoTitle ?? post.title} | ${SITE_NAME}`);
+  const description = fitDescription(post.description);
   const images = post.image
     ? [{ url: post.image, alt: post.imageAlt || post.title }]
     : undefined;
 
   return {
     title: { absolute: title },
-    description: post.description,
+    description,
     alternates: { canonical: url },
     openGraph: {
       title,
-      description: post.description,
+      description,
       url,
       type: "article",
       publishedTime: post.date,
@@ -42,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title,
-      description: post.description,
+      description,
       images: post.image ? [post.image] : undefined,
     },
   };

@@ -1,4 +1,5 @@
 ---
+seoTitle: "Political Risk vs Commercial Risk in Disputes"
 title: "How Political Risk Experts Distinguish Political Risk From Commercial Risk in Disputes"
 description: "How political risk experts distinguish political risk from commercial risk in disputes: overlap, chronology, evidence, and when specialist country analysis may assist."
 date: "2026-09-24"
